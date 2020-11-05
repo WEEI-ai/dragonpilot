@@ -9,6 +9,12 @@ GearShifter = car.CarState.GearShifter
 
 
 class CarState(CarStateBase):
+  def __init__(self, CP):
+    super().__init__(CP)
+    #dp
+    self.lkas_button_on_last = True
+    self.lkMode = True
+
   def update(self, cp, cp_cam):
     ret = car.CarState.new_message()
 
@@ -131,6 +137,10 @@ class CarState(CarStateBase):
     self.steer_state = cp.vl["MDPS12"]['CF_Mdps_ToiActive']  # 0 NOT ACTIVE, 1 ACTIVE
     self.lead_distance = cp.vl["SCC11"]['ACC_ObjDist']
 
+    if self.lkas_button_on_last != bool(cp_cam.vl["LKAS11"]["CF_Lkas_LdwsSysState"]):
+      self.lkMode = not self.lkMode
+
+    self.lkas_button_on_last = self.lkMode
     return ret
 
   @staticmethod
