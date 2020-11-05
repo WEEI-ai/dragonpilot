@@ -137,6 +137,7 @@ class CarState(CarStateBase):
     self.lead_distance = cp.vl["SCC11"]['ACC_ObjDist']
 
     self.lkMode = bool(cp_cam.vl["LKAS11"]["CF_Lkas_LdwsSysState"])
+    print("self.lkMode: %s" % self.lkMode)
     return ret
 
   @staticmethod
