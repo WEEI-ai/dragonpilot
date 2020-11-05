@@ -138,6 +138,7 @@ class CarState(CarStateBase):
 
     self.lkMode = bool(cp_cam.vl["LKAS11"]["CF_Lkas_LdwsSysState"])
     print("self.lkMode: %s" % self.lkMode)
+    print("CF_Lkas_LdwsSysState: %s" % cp_cam.vl["LKAS11"]["CF_Lkas_LdwsSysState"])
     return ret
 
   @staticmethod
