@@ -198,7 +198,7 @@ class CarInterface(CarInterfaceBase):
     ret = self.CS.update(self.cp, self.cp_cam)
     # dp
     self.dragonconf = dragonconf
-    ret.cruiseState.enabled = self.CS.lkMode and common_interface_atl(ret, dragonconf.dpAtl)
+    ret.cruiseState.enabled = common_interface_atl(ret, dragonconf.dpAtl)
     ret.canValid = self.cp.can_valid and self.cp_cam.can_valid
     ret.lkMode = self.CS.lkMode
 
